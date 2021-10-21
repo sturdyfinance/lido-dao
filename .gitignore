@@ -7,6 +7,7 @@
 **/cache/
 dist/
 tmp/
+.env
 
 /coverage/
 /coverage.json
