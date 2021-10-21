@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0
 
-pragma solidity 0.4.24;
+pragma solidity 0.8.9;
 import "./interfaces/ILido.sol";
 import "./interfaces/ISTETH.sol";
 
@@ -10,13 +10,13 @@ contract Assignment {
     ILido public Lido;
     ISTETH public StEth;
 
-    constructor(ILido _lido, ISTETH _iStEth) public {
+    constructor(ILido _lido, ISTETH _iStEth) {
         Lido = ILido(_lido);
         StEth = ISTETH(_iStEth);
     }
 
     function depositToLido(address referrer) public payable {
-        uint256 value = Lido.submit.value(msg.value)(referrer);
+        uint256 value = Lido.submit{value:msg.value}(referrer);
         balances[msg.sender] += value;
     }
 
