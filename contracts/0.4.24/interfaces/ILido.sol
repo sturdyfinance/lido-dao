@@ -2,7 +2,7 @@
 
 // SPDX-License-Identifier: GPL-3.0
 
-pragma solidity 0.4.24;
+pragma solidity 0.8.9;
 
 
 /**
@@ -77,7 +77,7 @@ interface ILido {
     /**
       * @notice Returns current credentials to withdraw ETH on ETH 2.0 side after the phase 2 is launched
       */
-    function getWithdrawalCredentials() external view returns (bytes);
+    function getWithdrawalCredentials() external view returns (bytes memory);
 
 
     event WithdrawalCredentialsSet(bytes32 withdrawalCredentials);
